@@ -1,14 +1,25 @@
 import React, { useState } from 'react'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import { Container } from 'reactstrap'
 import Header from './components/Header'
-import { dark } from '@material-ui/core/styles/createPalette'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme => ({
+  body: {
+    width: '100%',
+    height: '100vh'
+  }
+}))
 
 function App () {
   const [darkMode, setDarkMode] = useState(true)
 
+  const classes = useStyles()
+  const darkBackground = require('./assets/escheresque_ste.png')
+  const whiteBackground = require('./assets/escheresque.png')
+
   function toggleDarkMode () {
-    console.log('h')
     setDarkMode(previousValue => {
       return !previousValue
     })
@@ -27,8 +38,15 @@ function App () {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className='App'>
-        <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+      <div
+        style={
+          darkMode
+            ? { backgroundImage: 'url(' + darkBackground + ')' }
+            : { backgroundImage: 'url(' + whiteBackground + ')' }
+        }
+      >
+        <Container className={classes.body}>hello</Container>
       </div>
     </ThemeProvider>
   )

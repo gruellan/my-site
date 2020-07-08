@@ -9,15 +9,16 @@ import { Row, Col } from 'reactstrap'
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    opacity: 1.0
   },
   row: {
-      width: '100%'
+    width: '100%'
   },
   hideOnMobile: {
     [theme.breakpoints.down('xs')]: {
-        display: 'none',
-      },
+      display: 'none'
+    }
   }
 }))
 
@@ -46,9 +47,18 @@ export default function Header (props) {
 
   return (
     <React.Fragment>
-      <Toolbar className={classes.toolbar}>
+      <Toolbar
+        className={classes.toolbar}
+        style={
+          props.darkMode
+            ? { backgroundColor: '#353535' }
+            : { backgroundColor: '#e8e8e8' }
+        }
+      >
         <Row className={classes.row}>
-          <Col className={classes.hideOnMobile} sm='3'>{toggleDarkMode()}</Col>
+          <Col className={classes.hideOnMobile} sm='3'>
+            {toggleDarkMode()}
+          </Col>
           <Col sm='6' xs='12'>
             {' '}
             <Typography
