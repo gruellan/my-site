@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { Container } from 'reactstrap'
 import Header from './components/Header'
 import { makeStyles } from '@material-ui/core/styles'
+import Portfolio from './components/Portfolio'
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -12,12 +13,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function App () {
+export default function App () {
   const [darkMode, setDarkMode] = useState(true)
 
   const classes = useStyles()
-  const darkBackground = require('./assets/escheresque_ste.png')
-  const whiteBackground = require('./assets/escheresque.png')
 
   function toggleDarkMode () {
     setDarkMode(previousValue => {
@@ -42,14 +41,14 @@ function App () {
       <div
         style={
           darkMode
-            ? { backgroundImage: 'url(' + darkBackground + ')' }
-            : { backgroundImage: 'url(' + whiteBackground + ')' }
+            ? { backgroundImage: 'url(./assets/escheresque_ste.png)' }
+            : { backgroundImage: 'url(./assets/escheresque.png' }
         }
       >
-        <Container className={classes.body}>hello</Container>
+        <Container className={classes.body}>
+          <Portfolio />
+        </Container>
       </div>
     </ThemeProvider>
   )
 }
-
-export default App

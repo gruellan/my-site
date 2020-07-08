@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function Socials () {
+export default function Socials () {
   const classes = useStyles()
 
   return (
@@ -37,5 +37,3 @@ function Socials () {
     </Row>
   )
 }
-
-export default Socials
