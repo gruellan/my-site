@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ProjectPanel (props) {
+export default function ProjectPanel(props) {
   const classes = useStyles()
   const baseUrl = './../assets/'
   const imgUrl = baseUrl + props.image
@@ -44,7 +44,11 @@ export default function ProjectPanel (props) {
         </CardContent>
       </CardActionArea>
       <CardActions style={{ width: '100%', justifyContent: 'center' }}>
-        <a className={classes.social} href='https://www.github.com/gruellan'>
+        <a
+          className={classes.social}
+          href='https://www.github.com/gruellan'
+          target="_blank"
+        >
           <GitHubIcon color='action' />
         </a>
       </CardActions>

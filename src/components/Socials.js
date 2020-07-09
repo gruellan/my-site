@@ -20,17 +20,22 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Socials () {
+export default function Socials() {
   const classes = useStyles()
 
   return (
     <Row className="float-right">
-      <Link className={classes.social} href='https://www.github.com/gruellan'>
+      <Link
+        className={classes.social}
+        href='https://www.github.com/gruellan'
+        target="_blank"
+      >
         <GitHubIcon color='action' />
       </Link>{' '}
       <Link
         className={classes.social}
         href='https://www.linkedin.com/in/georgeruellan/'
+        target="_blank"
       >
         <LinkedInIcon color='action' />
       </Link>
