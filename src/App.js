@@ -9,7 +9,7 @@ import Portfolio from './components/Portfolio'
 const useStyles = makeStyles(theme => ({
   body: {
     width: '100%',
-    height: '100vh'
+    minHeight: '100vh'
   }
 }))
 
@@ -37,7 +37,6 @@ export default function App () {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
       <div
         style={
           darkMode
@@ -45,6 +44,7 @@ export default function App () {
             : { backgroundImage: 'url(./assets/escheresque.png' }
         }
       >
+      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <Container className={classes.body}>
           <Portfolio />
         </Container>

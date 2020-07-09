@@ -3,8 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Link from '@material-ui/core/Link'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import { Row, Col } from 'reactstrap'
-
+import { Row } from 'reactstrap'
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -29,6 +28,7 @@ export default function Socials() {
         className={classes.social}
         href='https://www.github.com/gruellan'
         target="_blank"
+        rel="noopener noreferrer"
       >
         <GitHubIcon color='action' />
       </Link>{' '}
@@ -36,6 +36,7 @@ export default function Socials() {
         className={classes.social}
         href='https://www.linkedin.com/in/georgeruellan/'
         target="_blank"
+        rel="noopener noreferrer"
       >
         <LinkedInIcon color='action' />
       </Link>
