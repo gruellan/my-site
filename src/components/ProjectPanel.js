@@ -41,7 +41,7 @@ export default function ProjectPanel(props) {
         <Row className={classes.row}>
           <a
             className={classes.social}
-            href='https://www.github.com/gruellan'
+            href={props.sourceCode}
             target="_blank"
             rel="noopener noreferrer"
           >

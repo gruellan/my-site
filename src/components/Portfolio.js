@@ -15,17 +15,27 @@ export default function Portfolio(props) {
       id: 1,
       title: 'Campus Bites',
       desc: 'Co-founder and software developer of a food delivery service. Built a progressive web app where users could order food to be delivered to their university accommodation. Technologies used: VueJS & Firebase.',
-      image: 'campus_bites.png',
-      sourceCode: '#'
+      image: 'campus_bites_new.png',
+      sourceCode: 'https://github.com/gruellan/campus-bites-website',
+      launch: 'https://campus-bites-ltd.web.app/'
     },
     {
       id: 2,
       title: 'Smirkin - Digital Photobooths',
       desc: 'Building and maintainng a photobooth app where customers at a venue can take selfies, apply filters and email it to themselves. Built using React Native.',
       image: 'smirkin.jpg',
-      sourceCode: '#',
+      sourceCode: '',
       launch: 'https://www.smirkin.co.uk'
     },
+    {
+      id: 2,
+      title: 'CRUD Database',
+      desc: 'This is a small PHP project where I created a CRUD database for books. You can search the database and also see a graph showing the number of books released each year. Built using PHP and MySQL.',
+      image: 'crud_db.png',
+      sourceCode: 'https://github.com/gruellan/library-crud-database',
+      launch: 'https://projects.georgeruellan.com/library-crud-database/index.php'
+    },
+    
   ]
 
   const closeModal = () => {
