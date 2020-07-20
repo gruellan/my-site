@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { Container } from 'reactstrap'
 import Header from './components/Header'
 import { makeStyles } from '@material-ui/core/styles'
 import Portfolio from './components/Portfolio'
+import ReactGA from 'react-ga'
+import { createBrowserHistory } from 'history'
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -13,12 +15,22 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function App () {
-  const [darkMode, setDarkMode] = useState(true)
+export default function App() {
+  // Initialise Google Analytics 
+  ReactGA.initialize(process.env.REACT_APP_GA_ID)
+  const browserHistory = createBrowserHistory()
+  browserHistory.listen((location, action) => {
+    ReactGA.pageview(location.pathname + location.search)
+  })
 
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search)
+  }, [])
+
+  const [darkMode, setDarkMode] = useState(true)
   const classes = useStyles()
 
-  function toggleDarkMode () {
+  function toggleDarkMode() {
     setDarkMode(previousValue => {
       return !previousValue
     })
@@ -44,7 +56,7 @@ export default function App () {
             : { backgroundImage: 'url(./assets/escheresque.png' }
         }
       >
-      <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <Container className={classes.body}>
           <Portfolio />
         </Container>
