@@ -7,6 +7,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import Portfolio from './components/Portfolio'
 import ReactGA from 'react-ga'
 import { createBrowserHistory } from 'history'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"
+import Home from './views/Home'
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -47,20 +54,29 @@ export default function App() {
   )
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div
-        style={
-          darkMode
-            ? { backgroundImage: 'url(./assets/escheresque_ste.png)' }
-            : { backgroundImage: 'url(./assets/escheresque.png' }
-        }
-      >
-        <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-        <Container className={classes.body}>
-          <Portfolio />
-        </Container>
-      </div>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div
+          style={
+            darkMode
+              ? { backgroundImage: 'url(./assets/escheresque_ste.png)' }
+              : { backgroundImage: 'url(./assets/escheresque.png' }
+          }
+        >
+          <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+          <Container className={classes.body}>
+            <Switch>
+              <Route path="/blog">
+                <h1>blog</h1>
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Container>
+        </div>
+      </ThemeProvider>
+    </Router >
   )
 }
