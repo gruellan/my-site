@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Portfolio from './components/Portfolio'
 import ReactGA from 'react-ga'
 import { createBrowserHistory } from 'history'
+import firebase from 'firebase'
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -16,6 +17,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function App() {
+  var database = firebase.database();
+
   // Initialise Google Analytics 
   ReactGA.initialize(process.env.REACT_APP_GA_ID)
   const browserHistory = createBrowserHistory()
