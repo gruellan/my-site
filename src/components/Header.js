@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import Socials from './Socials'
 import { makeStyles } from '@material-ui/core/styles'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Brightness2Icon from '@material-ui/icons/Brightness2'
-import WbSunnyIcon from '@material-ui/icons/WbSunny'
-import { Row, Col } from 'reactstrap'
+// import Brightness2Icon from '@material-ui/icons/Brightness2'
+// import WbSunnyIcon from '@material-ui/icons/WbSunny'
 import {
   Collapse,
   Navbar,
@@ -14,20 +10,16 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
 } from 'reactstrap';
 
 const useStyles = makeStyles(theme => ({
-  toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    opacity: 1.0
-  },
-  row: {
-    width: '100%'
+  text: {
+    color: 'white',
+    transition: 'transform 250ms',
+    '&:hover': {
+      color: 'white',
+      transform: 'scale(1.05)'
+    }
   },
   hideOnMobile: {
     [theme.breakpoints.down('xs')]: {
@@ -43,36 +35,40 @@ export default function Header(props) {
 
   const toggle = () => setIsOpen(!isOpen);
 
-
-  function toggleDarkMode() {
-    if (props.darkMode) {
-      return (
-        <WbSunnyIcon
-          onClick={props.toggleDarkMode}
-          variant='outlined'
-          size='small'
-        ></WbSunnyIcon>
-      )
-    } else {
-      return (
-        <Brightness2Icon
-          onClick={props.toggleDarkMode}
-          variant='outlined'
-          size='small'
-        ></Brightness2Icon>
-      )
-    }
-  }
+  // function toggleDarkMode() {
+  //   if (props.darkMode) {
+  //     return (
+  //       <WbSunnyIcon
+  //         onClick={props.toggleDarkMode}
+  //         variant='outlined'
+  //         size='small'
+  //       ></WbSunnyIcon>
+  //     )
+  //   } else {
+  //     return (
+  //       <Brightness2Icon
+  //         onClick={props.toggleDarkMode}
+  //         variant='outlined'
+  //         size='small'
+  //       ></Brightness2Icon>
+  //     )
+  //   }
+  // }
 
   return (
     <div>
-      <Navbar style={
-        props.darkMode
-          ? { backgroundColor: '#353535' }
-          : { backgroundColor: '#e8e8e8' }
-      } expand="md">
-        <NavbarBrand href="/">George Ruellan</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+      <Navbar
+        dark
+        expand="md"
+        style={
+          props.darkMode
+            ? { backgroundColor: '#353535' }
+            : { backgroundColor: '#e8e8e8' }
+        } >
+        <NavbarBrand href="/" className={classes.text}>George Ruellan</NavbarBrand>
+        <NavbarToggler
+          style={{ color: "#FFF" }}
+          onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
@@ -81,7 +77,7 @@ export default function Header(props) {
             <NavItem>
             </NavItem>
           </Nav>
-          <NavbarText>{toggleDarkMode()}</NavbarText>
+          {/* <NavbarText>{toggleDarkMode()}</NavbarText> */}
         </Collapse>
       </Navbar>
     </div>

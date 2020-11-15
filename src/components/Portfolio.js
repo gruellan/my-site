@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import ProjectPanel from './ProjectPanel'
 import { Container } from 'reactstrap'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Dialog from '@material-ui/core/Dialog'
 import firebase from 'firebase'
 
 export default function Portfolio(props) {
-  const [currentPanel, setCurrentPanel] = useState("")
+  //const [currentPanel, setCurrentPanel] = useState("")
   const [panels, setPanels] = useState("")
   const [modalToggle, setModaltoggle] = React.useState(false)
 
@@ -30,7 +29,7 @@ export default function Portfolio(props) {
 
   useEffect(() => {
     getPanels();
-  }, []);
+  });
 
   return (
     <Container>
@@ -39,9 +38,9 @@ export default function Portfolio(props) {
         style={{ marginTop: 50 }}
       >
         {panels.length > 1 ?
-          panels.map((panel, i) => {
+          panels.map((panel) => {
             return (
-              <Grid item
+              <Grid item key={panel.id}
                 xs={12} md={6} lg={4}
                 onClick={closeModal}
               >

@@ -4,16 +4,15 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { Container } from 'reactstrap'
 import Header from './components/Header'
 import { makeStyles } from '@material-ui/core/styles'
-import Portfolio from './components/Portfolio'
 import ReactGA from 'react-ga'
 import { createBrowserHistory } from 'history'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom"
 import Home from './views/Home'
+import Blog from './views/Blog'
 
 const useStyles = makeStyles(theme => ({
   body: {
@@ -68,7 +67,7 @@ export default function App() {
           <Container className={classes.body}>
             <Switch>
               <Route path="/blog">
-                <h1>blog</h1>
+                <Blog />
               </Route>
               <Route path="/">
                 <Home />
